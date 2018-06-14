@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -22,13 +23,18 @@ namespace EitherMouse
         {
             InitializeComponent();
             //Tray icon
+            /*
             IconGenerator icon = new IconGenerator(this, "EitherMouse", "EitherMouse", @"./icon.ico");
             icon.AddNotifyMenuItem(0, "Exit", exitItem_Click);
             icon.notifyIcon.DoubleClick += notifyIcon_MouseDoubleClick;
             InitializeComponent();
             Visibility = Visibility.Hidden;
             ShowInTaskbar = false;
+            */
             //MVVM
+            List<Profile> profiles = new List<Profile>();
+            profiles.Add(new Profile("Default", 10, 1000, 3));
+            this.DataContext = new Display(profiles);
         }
 
         private void notifyIcon_MouseDoubleClick(object sender, EventArgs e)

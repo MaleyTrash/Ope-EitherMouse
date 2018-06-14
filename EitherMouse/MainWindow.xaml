@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="'EitherMouse'" Height="350" Width="525">
     <StackPanel>
-        <ComboBox/>
+        <ComboBox ItemsSource="{Binding Profiles}" DisplayMemberPath="Name" SelectedValue="{Binding CurrentProfile, Mode=TwoWay}"/>
         <Label Content="Mouse Speed:"/>
-        <Slider IsSnapToTickEnabled="True" SmallChange="1" Minimum="1" Maximum="20" />
+        <Slider IsSnapToTickEnabled="True" SmallChange="1" Minimum="1" Maximum="20" Value="{Binding CurrentProfile.MouseSpeed}"/>
         <Label Content="Double Click Speed:"/>
-        <Slider IsSnapToTickEnabled="True" SmallChange="1" Minimum="1" Maximum="20" />
+        <Slider IsSnapToTickEnabled="True" SmallChange="500" Minimum="500" Maximum="5000" Value="{Binding CurrentProfile.DoubleClickSpeed}" TickFrequency="500"/>
         <Label Content="Scroll Speed:"/>
-        <Slider IsSnapToTickEnabled="True" SmallChange="1" Minimum="1" Maximum="20" />
+        <Slider IsSnapToTickEnabled="True" SmallChange="1" Minimum="1" Maximum="10" Value="{Binding CurrentProfile.ScrollSpeed}"/>
         <Label Content="Profile Name:"/>
-        <TextBox Text=""/>
+        <TextBox Text="{Binding CurrentProfile.Name}"/>
         <Button Content="Save"/>
     </StackPanel>
 </Window>
